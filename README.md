@@ -1,68 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React TODO App
 
-## Available Scripts
+Lab 26
 
-In the project directory, you can run:
+In this lab, you will be creating an application similar to Postman, called “RESTy”.
 
-### `yarn start`
+Your ToDo application should have the following features:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Users should have access to a form where a new ToDo task can be added. This form should have the following fields:
+  - Task Description / Text
+  - Assigned To
+  - Status (complete or incomplete)
+  - Difficulty (a number between 1 and 5)
+- When users submit their new task form, they should see their task appear in a list of current tasks. This list should allow you to select any task to toggle it from complete to incomplete or vice versa.
+- For this lab, your application does not have to persist tasks after application reload / refresh.
+- The title on the browser tab should update to show the number of incomplete tasks. For example, the title could read “4 Incomplete ToDo Items” or something similar.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Author: Joel Watson
 
-### `yarn test`
+### Links and Resources
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Lab 26
 
-### `yarn build`
+- [PR 26](https://github.com/401-advanced-javascript-joel/react-to-do/pull/1)
+- [CI/CD 26](https://github.com/401-advanced-javascript-joel/react-to-do/pull/1/checks)
+- [CodeSandbox 26](#)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Deployed App
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- [Netlify](#)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Setup
 
-### `yarn eject`
+- `npm install`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### How to run
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `npm start`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### UML
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+![UML 26](https://raw.githubusercontent.com/401-advanced-javascript-joel/react-to-do/master/assets/lab-26.png)
