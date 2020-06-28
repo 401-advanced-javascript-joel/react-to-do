@@ -2,7 +2,7 @@
 
 Lab 26
 
-In this lab, you will be creating an application similar to Postman, called “RESTy”.
+In this lab, you will be creating a ToDo application, utilizing functional components and the Hooks API
 
 Your ToDo application should have the following features:
 
