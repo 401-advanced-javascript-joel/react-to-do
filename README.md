@@ -2,7 +2,7 @@
 
 Lab 26
 
-In this lab, you will be creating an application similar to Postman, called “RESTy”.
+In this lab, you will be creating a ToDo application, utilizing functional components and the Hooks API
 
 Your ToDo application should have the following features:
 
@@ -21,8 +21,8 @@ Your ToDo application should have the following features:
 
 Lab 26
 
-- [PR 26](https://github.com/401-advanced-javascript-joel/react-to-do/pull/1)
-- [CI/CD 26](https://github.com/401-advanced-javascript-joel/react-to-do/pull/1/checks)
+- [PR 26](https://github.com/401-advanced-javascript-joel/react-to-do/pull/2)
+- [CI/CD 26](https://github.com/401-advanced-javascript-joel/react-to-do/pull/2/checks)
 - [CodeSandbox 26](#)
 
 Deployed App
@@ -32,6 +32,10 @@ Deployed App
 ### Setup
 
 - `npm install`
+
+### How to test
+
+- `npm test`
 
 ### How to run
 
