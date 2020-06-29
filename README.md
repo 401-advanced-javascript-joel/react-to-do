@@ -43,4 +43,4 @@ Deployed App
 
 ### UML
 
-![UML 26](https://raw.githubusercontent.com/401-advanced-javascript-joel/react-to-do/master/assets/lab-26.png)
+![UML 26](https://raw.githubusercontent.com/401-advanced-javascript-joel/react-to-do/master/assets/lab-26.jpg)
