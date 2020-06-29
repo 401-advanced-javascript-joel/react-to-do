@@ -23,11 +23,11 @@ Lab 26
 
 - [PR 26](https://github.com/401-advanced-javascript-joel/react-to-do/pull/2)
 - [CI/CD 26](https://github.com/401-advanced-javascript-joel/react-to-do/pull/2/checks)
-- [CodeSandbox 26](#)
+- [CodeSandbox 26](https://codesandbox.io/s/github/401-advanced-javascript-joel/react-to-do)
 
 Deployed App
 
-- [Netlify](#)
+- [Netlify](https://confident-mcclintock-fe5308.netlify.app/)
 
 ### Setup
 
