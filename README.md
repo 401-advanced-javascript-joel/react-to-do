@@ -44,7 +44,7 @@ Lab 27
 
 - [PR 27](https://github.com/401-advanced-javascript-joel/react-to-do/pull/3)
 - [CI/CD 27](https://github.com/401-advanced-javascript-joel/react-to-do/pull/3/checks)
-- [CodeSandbox 27](https://codesandbox.io/s/github/401-advanced-javascript-joel/react-to-do)
+- [CodeSandbox 27](https://codesandbox.io/s/github/401-advanced-javascript-joel/react-to-do/tree/lab-27)
 
 Deployed App
 
