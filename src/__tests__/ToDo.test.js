@@ -6,8 +6,9 @@ describe('Test ToDo', () => {
   test('should render form and empty list', () => {
     const todo = mount(<ToDo />);
 
-    expect(todo.find('.toDoList').length).toBe(1);
-    expect(todo.find('.toDoForm').length).toBe(1);
+    expect(todo.find('form').length).toBe(1);
+    expect(todo.find('.taskList').length).toBe(1);
+    todo.unmount();
   });
 
   test('should not add empty task to list', () => {
@@ -15,25 +16,26 @@ describe('Test ToDo', () => {
     const btn = todo.find('form button');
 
     btn.simulate('click');
-    expect(todo.find('.item').length).toBe(0);
+    expect(todo.find('.list-group-item').length).toBe(0);
+    todo.unmount();
   });
 
   test('should add a new task to list', () => {
     const todo = mount(<ToDo />);
-    const task = todo
-      .find('textarea[name="task"]')
+    const text = todo
+      .find('#task')
       .simulate('change', { target: { value: 'Test Task' } });
     const assignee = todo
-      .find('input[name="assignee"]')
+      .find('#assignee')
       .simulate('change', { target: { value: 'Test Assignee' } });
     const difficulty = todo
-      .find('input[name="difficulty"]')
+      .find('#difficulty')
       .simulate('change', { target: { value: '5' } });
 
     const btn = todo.find('form button');
 
     btn.simulate('click');
-    const item = todo.find('toDoItem');
-    expect(todo.find('.item').length).toBe(0);
+    expect(todo.find('.list-group-item').length).toBe(0);
+    todo.unmount();
   });
 });

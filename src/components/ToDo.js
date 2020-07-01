@@ -1,17 +1,54 @@
 import React, { useState, useEffect } from 'react';
+import Container from 'react-bootstrap/Container';
 import ToDoForm from './ToDoForm';
 import ToDoList from './ToDoList';
+import useFetch from '../hooks/useFetch';
 
 const ToDo = () => {
-  const [task, setTask] = useState('');
-  const [assignee, setAssignee] = useState('');
-  const [difficulty, setDifficulty] = useState('');
-  const [completed, setCompleted] = useState(false);
   const [list, setList] = useState([]);
+  const { setRequest, request, loading, error, response } = useFetch();
+
+  useEffect(() => {
+    // initial run
+    setRequest({
+      url: 'https://todo-server-401n16.herokuapp.com/api/v1/todo',
+    });
+  }, [setRequest]);
+
+  useEffect(() => {
+    if (response) {
+      let todo = null;
+      let newList = null;
+      switch (request.method) {
+        case 'POST':
+          todo = { ...response };
+          setList([...list, todo]);
+          break;
+        case 'PUT':
+          todo = { ...response };
+          newList = list.map((task) => {
+            if (todo._id === task._id) {
+              return todo;
+            }
+            return task;
+          });
+          setList(newList);
+          break;
+        case 'DELETE':
+          todo = { ...response };
+          newList = list.filter((task) => task._id !== todo._id);
+          setList(newList);
+          break;
+        default:
+          setList(response);
+          break;
+      }
+    }
+    // eslint-disable-next-line
+  }, [response]);
 
   useEffect(() => {
     let incomplete = 0;
-
     for (let i = 0; i < list.length; i++) {
       if (!list[i].completed) {
         incomplete++;
@@ -26,50 +63,46 @@ const ToDo = () => {
     }
   }, [list]);
 
-  const toggle = (index) => {
-    console.log(index);
-    let newList = [...list];
-    if (newList[index].completed) {
-      newList[index].completed = false;
-    } else {
-      newList[index].completed = true;
-    }
-    setList(newList);
+  const addTodo = async (todo) => {
+    console.log('running add');
+    const request = {
+      url: 'https://todo-server-401n16.herokuapp.com/api/v1/todo',
+      method: 'POST',
+      body: todo,
+    };
+    await setRequest(request);
   };
 
-  const onUpdate = (key, val) => {
-    switch (key) {
-      case 'task':
-        setTask(val);
-        break;
-      case 'assignee':
-        setAssignee(val);
-        break;
-      case 'difficulty':
-        setDifficulty(val);
-        break;
-      case 'completed':
-        setCompleted(val);
-        break;
-      case 'list':
-        setList([...list, val]);
-        break;
-      default:
-        break;
-    }
+  const deleteTodo = async (id) => {
+    console.log('running delete');
+    const request = {
+      url: `https://todo-server-401n16.herokuapp.com/api/v1/todo/${id}`,
+      method: 'DELETE',
+    };
+    await setRequest(request);
+  };
+
+  const updateTodo = async (id, todo) => {
+    console.log('running update');
+    const request = {
+      url: `https://todo-server-401n16.herokuapp.com/api/v1/todo/${id}`,
+      method: 'PUT',
+      body: todo,
+    };
+    await setRequest(request);
   };
 
   return (
-    <div className='toDo'>
-      <ToDoForm
-        task={task}
-        assignee={assignee}
-        difficulty={difficulty}
-        completed={completed}
-        onUpdate={onUpdate}
+    <Container>
+      <ToDoForm submit={addTodo} />
+      <ToDoList
+        list={list}
+        updateTodo={updateTodo}
+        deleteTodo={deleteTodo}
+        loading={loading}
+        error={error}
       />
-      <ToDoList list={list} toggle={toggle} />
-    </div>
+    </Container>
   );
 };
 
