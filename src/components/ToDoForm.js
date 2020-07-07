@@ -1,82 +1,65 @@
 import React from 'react';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import useForm from '../hooks/useForm';
 
-const ToDoForm = ({ task, assignee, difficulty, completed, onUpdate }) => {
-  const handleCheckbox = (e) => {
-    const target = e.target.previousSibling;
-    const checked = target.checked;
-    if (checked) {
-      target.checked = false;
-    } else {
-      target.checked = true;
-    }
-    onUpdate('completed', target.checked);
+const ToDoForm = ({ submit }) => {
+  const fields = {
+    text: '',
+    assignee: '',
+    difficulty: 1,
+    complete: false,
   };
 
-  const handleChanges = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    onUpdate(name, value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (task && assignee && difficulty) {
-      onUpdate('list', { task, assignee, difficulty, completed });
-    }
-  };
+  const { handleChange, handleSubmit } = useForm(fields);
 
   return (
-    <form className='ui form toDoForm' onSubmit={handleSubmit}>
-      <div className='field'>
-        <label>Task</label>
-        <textarea
-          name='task'
-          rows='2'
+    <Form>
+      <Form.Group controlId='text'>
+        <Form.Label>Text</Form.Label>
+        <Form.Control
+          required
+          as='textarea'
+          rows='3'
           placeholder='Pick up some milk from the store...'
-          value={task}
-          onChange={handleChanges}
+          onChange={(e) => handleChange(e.target.id, e.target.value)}
         />
-      </div>
-      <div className='field'>
-        <label>Assignee</label>
-        <input
-          type='text'
-          name='assignee'
-          placeholder='Sarah Smalls...'
-          value={assignee}
-          onChange={handleChanges}
+      </Form.Group>
+      <Form.Group controlId='assignee'>
+        <Form.Label>Assignee</Form.Label>
+        <Form.Control
+          required
+          placeholder='Sarah Smalls'
+          onChange={(e) => handleChange(e.target.id, e.target.value)}
         />
-      </div>
-      <div className='field'>
-        <label>Difficulty</label>
-        <input
-          type='number'
-          name='difficulty'
+      </Form.Group>
+      <Form.Group controlId='difficulty'>
+        <Form.Label>Difficulty</Form.Label>
+        <Form.Control
+          required
+          type='range'
           min='1'
           max='5'
-          placeholder='1-5'
-          value={difficulty}
-          onChange={handleChanges}
+          step='1'
+          onChange={(e) => handleChange(e.target.id, e.target.value)}
         />
-      </div>
-      <div className='ui segment'>
-        <div className='field'>
-          <div className='ui toggle checkbox'>
-            <input
-              type='checkbox'
-              name='completed'
-              className='hidden'
-              checked={completed}
-              onChange={handleCheckbox}
-            />
-            <label onClick={handleCheckbox}>Completed</label>
-          </div>
-        </div>
-      </div>
-      <button className='ui button' type='submit'>
+      </Form.Group>
+      <Form.Group controlId='completed'>
+        <Form.Label>Completed</Form.Label>
+        <Form.Check
+          type='switch'
+          label='Yes'
+          onChange={(e) => handleChange(e.target.id, e.target.checked)}
+        />
+      </Form.Group>
+      <Button
+        variant='primary'
+        type='button'
+        onClick={() => handleSubmit(submit)}
+      >
         Submit
-      </button>
-    </form>
+      </Button>
+    </Form>
   );
 };
 

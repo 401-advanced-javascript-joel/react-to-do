@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './components/Header';
 import ToDo from './components/ToDo';
 import Footer from './components/Footer';
-import './scss/main.scss';
+import './styles.scss';
 
 function App() {
   return (
