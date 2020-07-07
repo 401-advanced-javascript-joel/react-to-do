@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import ToDoForm from './ToDoForm';
 import ToDoList from './ToDoList';
 import useFetch from '../hooks/useFetch';
+import Settings from './Settings';
 
 const ToDo = () => {
   const [list, setList] = useState([]);
@@ -50,7 +51,7 @@ const ToDo = () => {
   useEffect(() => {
     let incomplete = 0;
     for (let i = 0; i < list.length; i++) {
-      if (!list[i].completed) {
+      if (!list[i].complete) {
         incomplete++;
       }
     }
@@ -95,6 +96,7 @@ const ToDo = () => {
   return (
     <Container>
       <ToDoForm submit={addTodo} />
+      <Settings />
       <ToDoList
         list={list}
         updateTodo={updateTodo}
