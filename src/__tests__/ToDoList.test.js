@@ -1,11 +1,17 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import SettingsContext from '../contexts/SettingsContext';
 import ToDoList from '../components/ToDoList';
 
 let component = null;
 
 beforeEach(() => {
-  component = mount(<ToDoList list={[]} />);
+  // needs the provider to mount correctly
+  component = mount(
+    <SettingsContext.Provider value={{}}>
+      <ToDoList list={[]} />
+    </SettingsContext.Provider>,
+  );
 });
 
 afterEach(() => {
