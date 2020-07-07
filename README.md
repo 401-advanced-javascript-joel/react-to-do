@@ -56,19 +56,17 @@ Lab 26
 
 - [PR 26](https://github.com/401-advanced-javascript-joel/react-to-do/pull/2)
 - [CI/CD 26](https://github.com/401-advanced-javascript-joel/react-to-do/pull/2/checks)
-- [CodeSandbox 26](https://codesandbox.io/s/github/401-advanced-javascript-joel/react-to-do)
 
 Lab 27
 
 - [PR 27](https://github.com/401-advanced-javascript-joel/react-to-do/pull/3)
 - [CI/CD 27](https://github.com/401-advanced-javascript-joel/react-to-do/pull/3/checks)
-- [CodeSandbox 27](https://codesandbox.io/s/github/401-advanced-javascript-joel/react-to-do/tree/lab-27)
 
 Lab 28
 
 - [PR 28](https://github.com/401-advanced-javascript-joel/react-to-do/pull/4)
 - [CI/CD 28](https://github.com/401-advanced-javascript-joel/react-to-do/pull/4/checks)
-- [CodeSandbox 28](https://codesandbox.io/s/github/401-advanced-javascript-joel/react-to-do/tree/lab-28)
+- [CodeSandbox 28](https://codesandbox.io/s/github/401-advanced-javascript-joel/react-to-do)
 
 Deployed App
 
